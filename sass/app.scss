@@ -1,0 +1,52 @@
+$red: lime;
+$pad: 0px 20px;
+body {
+	background: $red;
+	padding: $pad;
+}
+
+// Typography
+
+h1 {}
+h2 {}
+h3 {}
+p {}
+cite {}
+blockquote {}
+
+// Elements
+
+nav .gh-nav {}
+
+#logo .gh-logo {}
+
+.gh-box {}
+.gh-box-tame {}
+.gh-box-1 {}
+.gh-box-2 {}
+
+// Forms
+
+.gh-form {}
+
+.gh-form-group {}
+
+.gh-input {}
+
+.gh-label {}
+
+.gh-form-group-inline {}
+
+.gh-button {}
+
+.gh-button-1 {}
+
+.gh-button-2 {}
+
+// Table
+
+.gh-table {
+	th {}
+	tr {}
+	td {}
+}
