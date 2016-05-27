@@ -1,52 +1,205 @@
-$red: lime;
-$pad: 0px 20px;
+$color-1: #d94650;
+$color-1-text: white;
+$color-2: #0B0D42;
+$color-2-text: white;
+$mu: 1.5rem;
+$mr: .25rem;
+$dgrey: #333;
+$lgrey: #C1D7D9;
+$mgrey: silver;
+
+// Helpers
+
+.gh-color-1 {
+	background: $color-1;
+	color: $color-1-text;
+}
+
+.gh-color-2 {
+	background: $color-2;
+	color: $color-2-text;
+}
+
+.gh-fr {
+	display: inline;
+	float: right;
+}
+
+.gh-fl {
+	display: inline;
+	float: left;
+}
+
+.gh-cf {
+	clear:both;
+	overflow: auto;
+}
+
+// Layout
+
+.gh-bar {
+	display:block;
+	list-style: none;
+	margin:0;
+	padding:0;
+	position: fixed;
+	bottom:0;
+	width: 100%;
+	li {
+		width:33%;
+		height: 10px;
+		display: inline-block;
+		float: left;
+	}
+	.gh-b-1 {background: $color-1;}
+	.gh-b-2 {background: $color-2;}
+	.gh-b-3 {background: $lgrey;}
+}
+
 body {
-	background: $red;
-	padding: $pad;
+	background: white;
+}
+
+.container {
+	width: 60%;
+	margin: 0 auto;
 }
 
 // Typography
 
-h1 {}
-h2 {}
-h3 {}
-p {}
-cite {}
+h1 {font-size: 2rem;}
+h2 {font-size: 1.75rem;}
+h3 {font-size: 1.5rem;}
+p {line-height:1.5rem;}
+cite {font-size:2rem; font-weight: 600;}
 blockquote {}
 
 // Elements
 
-nav .gh-nav {}
+.gh-nav {
+	list-style: none;
+
+	li {
+		display: inline;
+		float: left;
+
+		a {
+			display: block;
+			color: $dgrey;
+			padding: ($mu / 2);
+			border-radius: $mr;
+			text-decoration: none;
+			font-size: .75rem;
+			margin:$mu / 6;
+			&.active, &:hover {
+				@extend .gh-color-1;
+			}
+		}
+	}
+}
 
 #logo .gh-logo {}
 
-.gh-box {}
-.gh-box-tame {}
-.gh-box-1 {}
-.gh-box-2 {}
+.gh-box-core {
+	padding: $mu;
+	border-radius: $mr;
+	margin: 0 0 $mu;
+}
+
+.gh-box {
+	@extend .gh-box-core;
+	border: 1px solid $lgrey;
+	color: $dgrey;
+}
+
+.gh-box-tame {
+	@extend .gh-box-core;
+	background: $lgrey;
+	border: 1px solid $mgrey;
+	color: $dgrey;
+}
+
+.gh-box-1 {
+	@extend .gh-box-core;
+	@extend .gh-color-1;
+}
+
+.gh-box-2 {
+	@extend .gh-box-core ;
+	@extend .gh-color-2;
+
+}
 
 // Forms
 
 .gh-form {}
 
-.gh-form-group {}
+.gh-form-group {
+	@extend .gh-cf;
+	margin-bottom: $mu / 2;
+}
 
-.gh-input {}
+.gh-form-group input, .gh-input {
+	padding: $mu / 3;
+	background: white;
+	border-radius: $mr;
+	border:0;
+	color: $dgrey;
+}
 
-.gh-label {}
+.gh-form-group label, .gh-label {
+	padding: $mu / 3;
+	display:block;
+}
 
 .gh-form-group-inline {}
 
-.gh-button {}
+.gh-btn-core {
+	padding: ($mu / 3) ($mu / 2);
+	display:inline;
+	border:0;
+	border-radius:$mr;
+}
 
-.gh-button-1 {}
+.gh-btn {
+	@extend .gh-btn-core;
+	background: white;
+	color: $dgrey;
+}
 
-.gh-button-2 {}
+.gh-btn-1 {
+	@extend .gh-btn-core;
+	@extend .gh-color-1;
+}
+
+.gh-btn-2 {
+	@extend .gh-btn-core;
+	@extend .gh-color-2;
+}
 
 // Table
 
 .gh-table {
-	th {}
-	tr {}
-	td {}
+	width:100%;
+	th {
+		font-weight: bold;
+	}
+	tbody {
+
+		tr {
+			border-top:1px solid rgba(0,0,0,.1);
+
+			&:nth-child(odd) {
+				background: rgba(0,0,0,.1);
+			}
+
+			&:first-child {
+				border-top-width: 2px;
+			}
+		}
+	}
+	td, th {
+		padding: $mu / 2;
+		text-align: left;
+	}
 }
